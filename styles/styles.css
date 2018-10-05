@@ -28,6 +28,7 @@ html
 .nav a:hover {
     background-color: #dbdbdb;
     color: #000611;
+    transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
 
 .nav a.active 
