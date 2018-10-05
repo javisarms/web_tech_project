@@ -96,11 +96,9 @@ html
 
 .product_img:hover img
 {
-  -moz-filter: blur(4px);
-  -webkit-filter: blur(4px);
-  filter: blur(4px);
-  -webkit-transition: all 0.7s ease-in-out;
-  filter: brightness(.5);
+  border-style: solid;
+  border-color: #7e11a3;
+  transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
 
 /*Forms stuff*/
