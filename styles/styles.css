@@ -30,7 +30,8 @@ html
     color: #000611;
 }
 
-.nav a.active {
+.nav a.active 
+{
     background-color: #7e11a3;
     color: white;
 }
@@ -101,18 +102,21 @@ html
   filter: brightness(.5);
 }
 
-/*Forms*/
-.form {
+/*Forms stuff*/
+.form 
+{
     max-width: 1140px;
     margin: 0 auto;
 }
 
-input[type=text] {
+input[type=text] 
+{
     width: 800px;
     height: 25px;
 }
 
-input[type=submit] {
+input[type=submit] 
+{
     background-color: #000;
     color: #fff;
     border: 1px solid #000;
@@ -124,7 +128,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover,
-input[type=submit]:active {
+input[type=submit]:active 
+{
     display: inline-block;
     padding: 10px 30px;
     text-decoration: none;
@@ -136,7 +141,8 @@ input[type=submit]:active {
     transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
 
-.button {
+.button 
+{
     background-color: #fff;
     color: #000;
     border: 1px solid #000;
@@ -149,13 +155,14 @@ input[type=submit]:active {
 }
 
 .button:hover,
-.button:active {
+.button:active 
+{
     display: inline-block;
     padding: 10px 35px;
     text-decoration: none;
     border-radius: 200px;
-    color: #428bca;
+    color: #7e11a3;
     background-color: #fff;
-    border: 1px solid #428bca;
+    border: 1px solid #7e11a3;
     transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
