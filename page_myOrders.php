@@ -2,12 +2,10 @@
 require_once ('core/init.php');
 $object = new Order;
 $object->connect();
-$orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all orders
-//$products = $object->getProducts($_SESSION['uid']); //returns all products the user has in cart
+$orders = $object->getBilledByUserID($_SESSION['uid']); // returns an array of all orders
  ?>
 
  <?php if(empty($orders) == true) {?>
- <!-- nothing in cart-->
  <!DOCTYPE html>
  <html>
    <head>
@@ -16,13 +14,12 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
    </head>
  <body>
    <div class="cont">
-     <h1 class = "first-word">Your cart is empty.</h1>
+     <h1 class = "first-word">Your do not have any billed orders.</h1>
    </div>
  </body>
  </html>
 
  <?php } else if(empty($orders) == false) {?> 
- <!-- //something in cart-->
  <!DOCTYPE html>
  <html>
    <head>
@@ -31,7 +28,7 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
    </head>
  <body>
   <div class="cont">
-     <h1 class = "first-word">Your cart</h1>
+     <h1 class = "first-word">Your billed orders</h1>
      <div class=".grid-container">
        <?php foreach ($orders as $order) {?>
         <div class = "row">

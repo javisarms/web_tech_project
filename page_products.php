@@ -13,18 +13,18 @@ $products = $object->getArray('products');
 	<link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+
 <div class="cont">
   <form action="search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
     <input type="text" name="search">
     <input type="submit" value="Search" style="height: 25px; padding-top: 3px;">
   </form>
-  
 	<h1 class = "first-word">Vinyl for sale</h1>
 	 <div class=".grid-container">
     <?php foreach ($products as $product) {?>
        <div class="col-4">
          <div class="product_img">
-          <?php $p_url = "product.php?id=" . $product['id'];?>
+          <?php $p_url = "page_product.php?id=" . $product['id'];?>
          	<a href="<?php echo ($p_url)?>">
              <img style="width: 300px; height: 300px;" src="<?php echo ($product['image_url'])?>" href="Product.html">
          	</a>

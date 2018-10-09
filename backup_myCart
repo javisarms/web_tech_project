@@ -1,0 +1,16 @@
+<div class="col-4">
+  <div class="product_img">
+   <?php $p_url = "product.php?id=" . $product['id'];?>
+   <a href="<?php echo ($p_url)?>">
+      <img style="width: 300px; height: 300px;" src="<?php echo ($product['image_url'])?>" href="Product.html">
+   </a>
+      <br>
+  </div>
+  <p>
+    <medium><?php echo ($product['name'])?></medium>
+    <br>
+    <small>Order ID: <?php echo ($order['id'])?> | Status: <?php echo ($order['status'])?></small> <br>
+    <small>Amount: <?php echo ($order['amount'])?>€</small>
+  </p>
+  <br>
+</div>
