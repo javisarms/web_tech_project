@@ -54,3 +54,9 @@ if(isset($_POST['submit']))
 		}
 	}
 }
+
+else
+{
+	header("Location: page_logIn.php?login=error");
+	exit();	
+}

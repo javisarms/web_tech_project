@@ -28,13 +28,14 @@ $orders = $object->getBilledByUserID($_SESSION['uid']); // returns an array of a
    </head>
  <body>
   <div class="cont">
-     <h1 class = "first-word">Your billed orders</h1>
+     <h1 class = "first-word">Your orders</h1>
      <div class=".grid-container">
        <?php foreach ($orders as $order) {?>
         <div class = "row">
           <h3 style="padding-left: 55px;">Order ID: <?php echo ($order['id'])?> | Status: <?php echo ($order['status'])?> | Amount: <?php echo ($order['amount'])?>€</h3>
           <?php  $products = $object->getProductsByOrderID($order['id']); ?>
           <?php  foreach($products as $product) {?>
+            <?php $p_order = $object->getPOrderfromPIDPOID($product['id'],$order['id']); ?>
             <div class="col-4">
               <div class="product_img">
                <?php $p_url = "page_product.php?id=" . $product['id'];?>
@@ -44,7 +45,9 @@ $orders = $object->getBilledByUserID($_SESSION['uid']); // returns an array of a
                   <br>
               </div>
               <p>
-                <medium><?php echo ($product['name'])?></medium>
+                <medium><?php echo ($product['name'])?></medium> <br>
+                <small><?php echo ($product['unit_price'])?>€ | </small>
+                <small>Quantity: <?php echo ($p_order['quantity'])?></small>
                 <br>
               </p>
               <br>

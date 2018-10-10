@@ -4,6 +4,7 @@
 	$object = new User;
 	$object->connect();
 	$product = $object->getByID('products',$id);
+	$c_url = "func_AddToCart.php?id=" . $id;
  ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,12 @@
 	  			<h3>
 	  				<?php echo ($product['description'])?> | Price: <?php echo ($product['unit_price'])?>€
 	  			</h3>
-	  			<a href="" class="button">Add to cart</a>
+	  			<br>
+	  			<form action="<?php echo ($c_url)?>" method="POST">
+	  				<p>Quantity:</p>
+	  				<input type="number" min="0" step="1" name="quantity"><br><br><br>
+	  				<input type="submit" value="Add to cart" name="submit">
+	  			</form>
 	  			<br>
 	  		</div>
 	  	</div>	

@@ -4,7 +4,7 @@ class Order extends DB
 {
 	public function getCartByUserID($uid)
 	{
-		$query = "SELECT * FROM orders WHERE user_id=? AND status=?";
+		$query = "SELECT * FROM orders WHERE user_id=? AND type=?";
 		$st = $this->connect()->prepare($query);
 		$st->execute([$uid, 'CART']);
 
@@ -23,9 +23,9 @@ class Order extends DB
 
 	public function getBilledByUserID($uid)
 	{
-		$query = "SELECT * FROM orders WHERE user_id=? AND status=?";
+		$query = "SELECT * FROM orders WHERE user_id=? AND type=?";
 		$st = $this->connect()->prepare($query);
-		$st->execute([$uid, 'BILLED']);
+		$st->execute([$uid, 'ORDER']);
 
 		$arr = array();
 
@@ -61,47 +61,45 @@ class Order extends DB
 		return $arr;
 	}
 
-	//individual items
-
-	public function getOrderIDfromPID($pid)
+	public function getPOrderfromPIDPOID($pid,$oid)
 	{
-		$query = "SELECT * FROM order_products WHERE product_id=?";
+		$query = "SELECT * FROM order_products WHERE product_id=? AND order_id=?";
 		$st = $this->connect()->prepare($query);
-		$st->execute([$pid]);
-
-		$arr = array();
+		$st->execute([$pid,$oid]);
 
 		if ($st->rowCount())
 		{
-			while ($row = $st->fetch())
+			if ($row = $st->fetch())
 			{
-				$oid = $row['order_id'];
-				array_push($arr, $oid);
+				return $row;
 			}
 		}
-
-		return $arr;
 	}
 
-	public function getOrdersBasedOnProd($arrid, $uid) //Get each order based on the order ids provided on the method above and double check with the user's id
+	public function getCurrentCart($uid)
 	{
-		$arr = array();
+		$query = "SELECT * FROM orders WHERE user_id=? AND status=?";
+		$st = $this->connect()->prepare($query);
+		$st->execute([$uid,'CART']);
 
-		foreach ($arrid as $oid) 
+		if ($st->rowCount())
 		{
-			$query = "SELECT * FROM orders WHERE id=? AND user_id=?";
-			$st = $this->connect()->prepare($query);
-			$st->execute([$oid, $uid]);
-
-			if ($st->rowCount())
+			if ($row = $st->fetch())
 			{
-				while ($row = $st->fetch())
-				{
-					array_push($arr, $row);
-				}
+				return $row;
 			}
 		}
 
-		return $arr; //returns an array of all the orders based on the product id and user id
+		else
+		{
+			return null;
+		}
 	}
+
+	public function updateAmount($oid, $amount) 
+	{
+        $query = "UPDATE orders SET amount=? WHERE id=?";
+        $st = $this->connect()->prepare($query);
+        return $st->execute([$amount,$oid]);
+    }
 }

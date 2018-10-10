@@ -3,7 +3,6 @@ require_once ('core/init.php');
 $object = new Order;
 $object->connect();
 $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all orders
-//$products = $object->getProducts($_SESSION['uid']); //returns all products the user has in cart
  ?>
 
  <?php if(empty($orders) == true) {?>
@@ -35,11 +34,12 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
      <div class=".grid-container">
        <?php foreach ($orders as $order) {?>
         <div class = "row">
-          <h3 style="padding-left: 55px;">Order ID: <?php echo ($order['id'])?> | Status: <?php echo ($order['status'])?> | Amount: <?php echo ($order['amount'])?>€</h3>
+          <h3 style="padding-left: 55px;">Total Amount: <?php echo ($order['amount'])?>€</h3>
           <?php  $products = $object->getProductsByOrderID($order['id']); ?>
           <?php  foreach($products as $product) {?>
+            <?php $p_order = $object->getPOrderfromPIDPOID($product['id'],$order['id']); ?>
             <div class="col-4">
-              <div class="product_img">
+              <div class="product_img"> <!-- should also show quantity -->
                <?php $p_url = "page_product.php?id=" . $product['id'];?>
                <a href="<?php echo ($p_url)?>">
                   <img style="width: 300px; height: 300px;" src="<?php echo ($product['image_url'])?>" href="Product.html">
@@ -47,7 +47,9 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
                   <br>
               </div>
               <p>
-                <medium><?php echo ($product['name'])?></medium>
+                <medium><?php echo ($product['name'])?></medium> <br>
+                <small><?php echo ($product['unit_price'])?>€ | </small>
+                <small>Quantity: <?php echo ($p_order['quantity'])?></small>
                 <br>
               </p>
               <br>
