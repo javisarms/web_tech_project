@@ -15,17 +15,8 @@ $products = $object->search($search);
  	<link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-	<div class="nav">
-	    <a href="index.php">Home</a>
-	    <a class="active" href="products.php">Products</a>
-	    <a href="myCart.php">My Cart</a>
-	    <a href="createAcc.php" style="float:right">Create Account</a>
-	    <a href="logIn.php" style="float:right">Log-in</a>
-	    <a href="addProd.php" style="float:right">Add Product</a>
-  	</div>
-
 	<div class="cont">
-	  <form action="search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
+	  <form action="page_search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
 	      <input type="text" name="search">
 	      <input type="submit" value="Search" style="height: 25px; padding-top: 3px">
 	  </form>
@@ -42,17 +33,9 @@ $products = $object->search($search);
  		<link rel="stylesheet" href="./styles/styles.css">
  	</head>
  	<body>
- 		<div class="nav">
- 	    <a href="index.php">Home</a>
- 	    <a class="active" href="products.php">Products</a>
- 	    <a href="myCart.php">My Cart</a>
- 	    <a href="createAcc.php" style="float:right">Create Account</a>
- 	    <a href="logIn.php" style="float:right">Log-in</a>
- 	    <a href="addProd.php" style="float:right">Add Product</a>
- 	  </div>
 
  	<div class="cont">
- 	  <form action="search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
+ 	  <form action="page_search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
  	    <input type="text" name="search" placeholder="Search">
  	    <input type="submit" value="Search">
  	  </form>

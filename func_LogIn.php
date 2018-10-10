@@ -34,9 +34,18 @@ if(isset($_POST['submit']))
 					$_SESSION['uemail'] = $row['email'];
 					$_SESSION['ubadd'] = $row['billing_adress_id'];
 					$_SESSION['udadd'] = $row['delivery_adress_id'];
-					header("Location: page_products.php?login=success");
-					exit();
 
+					if($_SESSION['uemail'] == "admin@example.com")
+					{
+						header("Location: index.php");
+					}
+
+					else
+					{
+						header("Location: page_products.php?login=success");
+					}
+					
+					exit();
 				}
 
 				elseif($PWC == true)

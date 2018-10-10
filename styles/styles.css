@@ -188,3 +188,10 @@ input[type=submit]:active
     border: 1px solid #7e11a3;
     transition: color 0.2s, background-color 0.2s, border 0.2s;
 }
+
+/*Table stuff*/
+table, th, td 
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}

@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
 
 	if(empty($quantity))
 	{
-		header("Location: page_products.php?error=quant");
+		header("Location: page_products.php?error=empty");
 		exit();	
 	}
 

@@ -19,7 +19,7 @@ require_once ('core/init.php');
 				  <h3>Password:</h3>
 				  <input type="password" name="pw"><br><br><br>
 				  <input type="submit" value="Log-in" name="submit">
-				  <a class="button" href="Products.html">Back</a>
+				  <a class="button" href="page_products.html">Back</a>
 				</form>
 			</div>
 		</div>

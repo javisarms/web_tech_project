@@ -44,7 +44,6 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
                <a href="<?php echo ($p_url)?>">
                   <img style="width: 300px; height: 300px;" src="<?php echo ($product['image_url'])?>" href="Product.html">
                </a>
-                  <br>
               </div>
               <p>
                 <medium><?php echo ($product['name'])?></medium> <br>

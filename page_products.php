@@ -15,7 +15,7 @@ $products = $object->getArray('products');
 <body>
 
 <div class="cont">
-  <form action="search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
+  <form action="page_search.php" method="POST" style="padding-top: 5px; padding-left: 45px;">
     <input type="text" name="search">
     <input type="submit" value="Search" style="height: 25px; padding-top: 3px;">
   </form>
