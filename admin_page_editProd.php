@@ -12,7 +12,6 @@ $piurl = $product['image_url'];
 $prid = $product['range_id'];
 
 $purl = "admin_func_EditProd.php?id=" . $pid;
-
  ?>
 
 <!DOCTYPE html>
