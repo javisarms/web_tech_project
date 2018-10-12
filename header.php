@@ -19,7 +19,7 @@
 			  <a href="page_myCart.php">My Cart</a>
 			  <a href="page_myOrders.php">My Orders</a>
 			  <a href="func_LogOut.php" style="float:right">Logout</a>
-			  <a href="#" style="float:right">My Account</a>
+			  <a href="page_myAccount.php" style="float:right">My Account</a>
 			</div>
 		<?php } ?>
 		
