@@ -26,8 +26,10 @@ if(isset($_POST['submit']))
 
 		else
 		{
+			$user = object->getByID($email);
 			$_SESSION['uname'] = $uname;
 			$_SESSION['uemail'] = $email;
+			$_SESSION['uid'] = $user['id'];
 			$write = "INSERT INTO users (username, email, password) VALUES ('$uname', '$email', '$pw')";
 			$st = $object->connect()->exec($write);
 			header("Location: page_products.php?signup=success");

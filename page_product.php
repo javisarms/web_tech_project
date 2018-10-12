@@ -28,11 +28,15 @@
 	  				<?php echo ($product['description'])?> | Price: <?php echo ($product['unit_price'])?>€
 	  			</h3>
 	  			<br>
+	  			<?php if (empty($_SESSION['uemail']) == true) { ?>
+
+	  			<?php } else {?>
 	  			<form action="<?php echo ($c_url)?>" method="POST">
 	  				<p>Quantity:</p>
 	  				<input type="number" min="0" step="1" name="quantity"><br><br><br>
 	  				<input type="submit" value="Add to cart" name="submit">
 	  			</form>
+	  			<?php } ?>
 	  			<br>
 	  		</div>
 	  	</div>	

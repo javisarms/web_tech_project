@@ -18,7 +18,7 @@ if($email == "admin@example.com") {
 		{
 		    border: 1px solid black;
 		    border-collapse: collapse;
-		    padding: 5px;
+		    padding: 7px;
 		}
 
 		.center 
@@ -36,7 +36,7 @@ if($email == "admin@example.com") {
 			<table>
 			 <tr>
 			   <th>ID</th>
-			   <th>Name</th>
+			   <th>Title</th>
 			   <th>Artist</th>
 			   <th>Price</th>
 			   <th>Image URL</th>

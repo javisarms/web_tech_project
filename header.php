@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
 	<?php if (empty($_SESSION['uemail']) == false){?>
