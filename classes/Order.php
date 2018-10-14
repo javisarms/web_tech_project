@@ -102,4 +102,32 @@ class Order extends DB
         $st = $this->connect()->prepare($query);
         return $st->execute([$amount,$oid]);
     }
+
+    public function productExists($pid, $oid)
+    {
+    	$query = "SELECT * FROM order_products WHERE product_id=? AND order_id=?";
+    	$st = $this->connect()->prepare($query);
+    	$st->execute([$pid,$oid]);
+
+    	if ($st->rowCount())
+    	{
+    		if ($row = $st->fetch())
+    		{
+    			return $row;
+    		}
+    	}
+
+    	else
+    	{
+    		return null;
+    	}
+
+    }
+
+    public function updateQuantity($quantity, $prodTBA)
+    {
+    	$query = "UPDATE order_products SET quantity=? WHERE id=?";
+    	$st = $this->connect()->prepare($query);
+    	return $st->execute([$quantity, $prodTBA['id']]);
+    }
 }
