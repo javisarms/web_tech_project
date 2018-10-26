@@ -11,7 +11,7 @@ require_once ('core/init.php');
 <body>
 	<div class="form">
 		<div class = "cont">
-			<div class='col-12'>
+			<div class='col-12'> 
 				<form action="func_LogIn.php" method="POST">
 				  <h1>Log-in</h1>
 				  <h3>Email:</h3>

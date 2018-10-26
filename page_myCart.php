@@ -34,7 +34,9 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
      <div class=".grid-container">
        <?php foreach ($orders as $order) {?>
         <div class = "row">
-          <h3 style="padding-left: 55px;">Total Amount: <?php echo ($order['amount'])?>€ <a href="#" class="button" style="margin-left: 30px;">Checkout</a></h3>
+          <h3 style="padding-left: 55px;">Total Amount: <?php echo ($order['amount'])?>€ 
+            <a href="page_checkOut.php" class="button" style="margin-left: 30px;">Checkout</a>
+          </h3>
           <?php  $products = $object->getProductsByOrderID($order['id']); ?>
           <?php  foreach($products as $product) {?>
             <?php $p_order = $object->getPOrderfromPIDPOID($product['id'],$order['id']); ?>
@@ -55,7 +57,6 @@ $orders = $object->getCartByUserID($_SESSION['uid']); // returns an array of all
           <?php } ?>
         </div>
        <?php } ?>
-       
        <br><br><br>
     </div>
    </div>
