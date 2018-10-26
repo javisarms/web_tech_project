@@ -52,4 +52,19 @@ class DB
 			return "There is no data in the table";
 		}
 	}
+
+	public function getLast($table)
+	{
+		$query = "SELECT * FROM " . $table . " ORDER BY ID DESC LIMIT 1";
+		$st = $this->connect()->prepare($query);
+		$st->execute();
+
+		if ($st->rowCount())
+		{
+			while ($row = $st->fetch())
+			{
+				return $row;
+			}
+		}
+	}
 }

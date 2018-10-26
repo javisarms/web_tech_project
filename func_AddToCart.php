@@ -51,13 +51,13 @@ if(isset($_POST['submit']))
 			//check first if product already exists in order
 			$prodTBA = $object->productExists($pid, $oid);
 
-			if ($prodTBA == null) //Prod does not exist, create new row in order_products
+			if ($prodTBA == null) //Product does not exist yet, create new row in order_products
 			{
 				$write = "INSERT INTO order_products (order_id, product_id, quantity, unit_price) VALUES ('$oid', '$pid', '$quantity', '$price')";
 				$st = $object->connect()->exec($write);
 			}
 
-			else //product already exists, update the quantity of products
+			else //product already exists, update the quantity of product in order_products
 			{
 				$quantity += $prodTBA['quantity'];
 				$object->updateQuantity($quantity, $prodTBA);

@@ -23,7 +23,8 @@
 				<?php if (empty($user['billing_adress_id']) && empty($user['delivery_adress_id'])) { ?>
 					<h3>You have not added any addresses.</h3>
 					<br>
-					<a href="page_updateAddress.php" class="button">Update Addresses</a>
+					<a href="page_updateDelAddress.php" class="button">Update Delivery Address</a>
+					<a href="page_updateBillAddress.php" class="button">Update Billing Address</a>
 				<?php } else if (empty($user['delivery_adress_id']) && empty($user['billing_adress_id']) == false) { ?>
 					<?php $bAdd =  $object->getByID('user_addresses', $user['billing_adress_id'])?>
 					<h3>Billing Address:</h3>
@@ -39,7 +40,7 @@
 						<h3>You have not added a delivery address.</h3>
 					</div>
 					<br>
-					<a href="page_updateAddress.php" class="button">Update Delivery Address</a>
+					<a href="page_updateDelAddress.php" class="button">Update Delivery Address</a>
 				<?php } else if (empty($user['billing_adress_id']) && empty($user['delivery_adress_id']) == false) {?>
 					<?php $dAdd = $object->getByID('user_addresses', $user['delivery_adress_id']) ?>
 					<h3>Delivery Address:</h3>
@@ -55,7 +56,7 @@
 						<h3>You have not added a billing address.</h3>
 					</div>
 					<br>
-					<a href="page_updateAddress.php" class="button">Update Delivery Address</a>
+					<a href="page_updateBillAddress.php" class="button">Update Billing Address</a>
 				<?php } else { ?>
 					<?php $bAdd =  $object->getByID('user_addresses', $user['billing_adress_id'])?>
 					<h3>Billing Address:</h3>
@@ -83,7 +84,8 @@
 						<p>Country: <?php echo ($dAdd['country']) ?></p>
 					</div>
 					<br>
-					<a href="page_updateAddress.php" class="button">Update Delivery Address</a>
+					<a href="page_updateDelAddress.php" class="button">Update Delivery Address</a>
+					<a href="page_updateBillAddress.php" class="button">Update Billing Address</a>
 				<?php } ?>
 			</div>
 		</div>

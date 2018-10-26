@@ -1,6 +1,5 @@
 <?php
 require_once ('core/init.php');
-
 $object = new Product;
 $object->connect();
 $products = $object->getArray('products');

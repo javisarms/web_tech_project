@@ -1,6 +1,8 @@
 <?php 
 require_once ('core/init.php');
 $object = new User;
+$object->connect();
+$users = $object->getArray('users');
 
 if(isset($_POST['submit']))
 {
@@ -26,15 +28,56 @@ if(isset($_POST['submit']))
 
 		else
 		{
-			
-			$_SESSION['uname'] = $uname;
-			$_SESSION['uemail'] = $email;
-			$write = "INSERT INTO users (username, email, password) VALUES ('$uname', '$email', '$pw')";
-			$st = $object->connect()->exec($write);
-			$user = $object->getByEmail($email);
-			$_SESSION['uid'] = $user['id'];
-			header("Location: page_products.php?signup=success");
-			exit();
+			//Check if email exists
+			$emailcheck = true;
+			foreach ($users as $use) 
+			{
+			    if ($email == $use['email']) 
+			    {
+			    	$emailcheck = false;
+			    }
+			}
+
+			if ($emailcheck == true) 
+			{
+				//Check if username exists
+				$unamecheck = true;
+				foreach ($users as $use) 
+				{
+				    if ($uname == $use['username']) 
+				    {
+				    	$unamecheck = false;
+				    }
+				}
+
+				if ($unamecheck == true) 
+				{
+					# Registration complete
+					$_SESSION['uname'] = $uname;
+					$_SESSION['uemail'] = $email;
+					$write = "INSERT INTO users (username, email, password) VALUES ('$uname', '$email', '$pw')";
+					$st = $object->connect()->exec($write);
+					$user = $object->getByEmail($email);
+					$_SESSION['uid'] = $user['id'];
+					$_SESSION['ubadd'] = $user['billing_adress_id'];
+					$_SESSION['udadd'] = $user['delivery_adress_id'];
+					header("Location: page_products.php?signup=success");
+					exit();
+				}
+
+				else
+				{
+					header("Location: page_createAcc.php?signup=username");
+					exit();
+				}
+			}
+
+			else
+			{
+				header("Location: page_createAcc.php?signup=email");
+				exit();
+			}
+
 		}
 
 	}
