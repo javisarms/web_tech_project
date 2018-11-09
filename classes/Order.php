@@ -103,6 +103,20 @@ class Order extends DB
         return $st->execute([$amount,$oid]);
     }
 
+    public function updateBillingAd($oid, $bid) 
+	{
+        $query = "UPDATE orders SET billing_adress_id=? WHERE id=?";
+        $st = $this->connect()->prepare($query);
+        return $st->execute([$bid,$oid]);
+    }
+
+    public function updateDeliveryAd($oid, $did) 
+	{
+        $query = "UPDATE orders SET delivery_adress_id=? WHERE id=?";
+        $st = $this->connect()->prepare($query);
+        return $st->execute([$did,$oid]);
+    }
+
     public function productExists($pid, $oid)
     {
     	$query = "SELECT * FROM order_products WHERE product_id=? AND order_id=?";
@@ -129,5 +143,19 @@ class Order extends DB
     	$query = "UPDATE order_products SET quantity=? WHERE id=?";
     	$st = $this->connect()->prepare($query);
     	return $st->execute([$quantity, $prodTBA['id']]);
+    }
+
+    public function checkOutType($oid)
+    {
+    	$query = "UPDATE orders SET type='ORDER' WHERE id=?";
+    	$st = $this->connect()->prepare($query);
+    	return $st->execute([$oid]);
+    }
+
+    public function checkOutStatus($oid)
+    {
+    	$query = "UPDATE orders SET status='BILLED' WHERE id=?";
+    	$st = $this->connect()->prepare($query);
+    	return $st->execute([$oid]);
     }
 }
