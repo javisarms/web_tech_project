@@ -1,5 +1,5 @@
 <?php 
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new User;
 $object->connect();
 $uid = $_SESSION['uid'];
@@ -16,7 +16,7 @@ if(isset($_POST['submit']))
 	//Validation if empty
 	if(empty($name) || empty($add1) || empty($post) || empty($city) || empty($country))
 	{
-		header("Location: page_updateDelAddress.php?updateAdd=empty");
+		header("Location: ../views/page_updateDelAddress.php?updateAdd=empty");
 		exit();
 	}
 
@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
 		$did = $add['id'];
 		$object->updateDelAddress($did, $uid);
 
-		header("Location: page_myAccount.php?updateAdd=success");
+		header("Location: ../views/page_myAccount.php?updateAdd=success");
 		exit();	
 
 	}
@@ -52,6 +52,6 @@ if(isset($_POST['submit']))
 
 else
 {
-	header("Location: page_updateDelAddress.php?updateAdd=error");
+	header("Location: ../views/page_updateDelAddress.php?updateAdd=error");
 	exit();	
 }

@@ -1,4 +1,4 @@
-<?php
+ <?php
 //this class is used for initialization 
 session_start();
 

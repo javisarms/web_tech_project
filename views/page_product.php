@@ -1,23 +1,23 @@
 <?php 
-	require_once ('core/init.php');
+	require_once ('init.php');
 	$id = $_GET['id'];
 	$object = new User;
 	$object->connect();
 	$product = $object->getByID('products',$id);
-	$c_url = "func_AddToCart.php?id=" . $id;
+	$c_url = "../functions/func_AddToCart.php?id=" . $id;
  ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Culture</title>
-	<link rel="stylesheet" href="./styles/styles.css">
+	<link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 	  <div class = "cont">
 	  	<div class="row">
 	  		<div class="col-6">
-	           <img style="width: 500px; height: 500px;" src="<?php echo ($product['image_url'])?>">
+	           <img style="width: 500px; height: 500px;" src="<?php echo ("../" . $product['image_url'])?>">
 	           <br>
 	  		</div>
 	  		<div class="col-6">

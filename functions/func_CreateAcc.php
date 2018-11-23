@@ -1,5 +1,5 @@
 <?php 
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new User;
 $object->connect();
 $users = $object->getArray('users');
@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 
 	if(empty($email) || empty($uname) ||empty($pw))
 	{
-		header("Location: page_createAcc.php?signup=empty");
+		header("Location: ../views/page_createAcc.php?signup=empty");
 		exit();
 	}
 
@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
 		{
-			header("Location: page_createAcc.php?signup=email");
+			header("Location: ../views/page_createAcc.php?signup=email");
 			exit();
 		}
 
@@ -61,20 +61,20 @@ if(isset($_POST['submit']))
 					$_SESSION['uid'] = $user['id'];
 					$_SESSION['ubadd'] = $user['billing_adress_id'];
 					$_SESSION['udadd'] = $user['delivery_adress_id'];
-					header("Location: page_products.php?signup=success");
+					header("Location: ../views/page_products.php?signup=success");
 					exit();
 				}
 
 				else
 				{
-					header("Location: page_createAcc.php?signup=username");
+					header("Location: ../views/page_createAcc.php?signup=username");
 					exit();
 				}
 			}
 
 			else
 			{
-				header("Location: page_createAcc.php?signup=email");
+				header("Location: ../views/page_createAcc.php?signup=email");
 				exit();
 			}
 
@@ -85,6 +85,6 @@ if(isset($_POST['submit']))
 
 else
 {
-	header("Location: page_createAcc.php");
+	header("Location: ../views/page_createAcc.php");
 	exit();
 }

@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new Order;
 $object->connect();
 $uid = $_SESSION['uid'];
@@ -91,10 +91,9 @@ if(isset($_POST['submit'])) {
 	}
 
 	//Finally change status of order
-	$object->checkOutType($oid);
 	$object->checkOutStatus($oid);
 
-	header("Location: page_myOrders.php?updateAdd=success");
+	header("Location: ../views/page_myOrders.php?updateAdd=success");
 	exit();	
 
 }

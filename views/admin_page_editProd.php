@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $pid = $_GET['id'];
 $object = new Product;
 $object->connect();
@@ -11,14 +11,14 @@ $pprice = $product['unit_price'];
 $piurl = $product['image_url'];
 $prid = $product['range_id'];
 
-$purl = "admin_func_EditProd.php?id=" . $pid;
+$purl = "../functions/admin_func_EditProd.php?id=" . $pid;
  ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Edit Product</title>
-	<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 <body>
 	<div class="form">

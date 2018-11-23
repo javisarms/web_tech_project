@@ -1,4 +1,4 @@
- <?php
+  <?php
 
 class Order extends DB 
 {
@@ -23,9 +23,9 @@ class Order extends DB
 
 	public function getBilledByUserID($uid)
 	{
-		$query = "SELECT * FROM orders WHERE user_id=? AND type=?";
+		$query = "SELECT * FROM orders WHERE user_id=? AND status=?";
 		$st = $this->connect()->prepare($query);
-		$st->execute([$uid, 'ORDER']);
+		$st->execute([$uid, 'BILLED']);
 
 		$arr = array();
 
@@ -152,10 +152,18 @@ class Order extends DB
     	return $st->execute([$oid]);
     }
 
+    public function checkOutTypeCart($oid)
+    {
+    	$query = "UPDATE orders SET type='CART' WHERE id=?";
+    	$st = $this->connect()->prepare($query);
+    	return $st->execute([$oid]);
+    }
+
     public function checkOutStatus($oid)
     {
     	$query = "UPDATE orders SET status='BILLED' WHERE id=?";
     	$st = $this->connect()->prepare($query);
     	return $st->execute([$oid]);
     }
+
 }

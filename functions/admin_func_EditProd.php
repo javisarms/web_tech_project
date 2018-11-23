@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $email = $_SESSION['uemail'];
 $object = new Product;
 $object->connect();
@@ -17,27 +17,27 @@ if ($email == "admin@example.com")
 
 		if (empty($name) || empty($description) || empty($price) || empty($url) || empty($r_id)) 
 		{
-			header("Location: index.php?error=empty");
+			header("Location: ../index.php?error=empty");
 			exit();	
 		}
 
 		else
 		{
 			$object->updateProd($id, $name, $description, $price, $url, $r_id);
-			header("Location: index.php?edit=success");
+			header("Location: ../index.php?edit=success");
 			exit();	
 		}
 	}
 
 	else
 	{
-		header("Location: index.php");
+		header("Location: ../index.php");
 		exit();	
 	}
 }
 
 else
 {
-	header("Location: index.php");
+	header("Location: ../index.php");
 	exit();	
 }

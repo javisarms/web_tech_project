@@ -1,5 +1,5 @@
 <?php
-	require_once ('core/init.php');
+	require_once ('init.php');
 	$object = new User;
 	$object->connect();
 	$user = $object->getByID('users', $_SESSION['uid']);
@@ -17,7 +17,7 @@
 			<div class="col-6">
 				<h1>Username: <?php echo ($user['username']) ?></h1>
 				<h1>Email: <?php echo ($user['email']) ?></h1> <br><br>
-				<img src="Albums/disc.png" style="width: 350px; height: 350px">
+				<img src="../Albums/disc.png" style="width: 350px; height: 350px">
 			</div>
 			<div class="col-6">
 				<?php if (empty($user['billing_adress_id']) && empty($user['delivery_adress_id'])) { ?>

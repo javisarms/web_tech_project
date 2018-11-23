@@ -1,5 +1,5 @@
 <?php
-	require_once ('core/init.php');
+	require_once ('init.php');
 	$object = new User;
 	$object->connect();
 	$user = $object->getByID('users', $_SESSION['uid']);
@@ -16,7 +16,7 @@
 <html>
 <head>
 	<title>Edit Product</title>
-	<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 	<style type="text/css">
 		input[type=text] 
 		{
@@ -31,7 +31,7 @@
 			<!-- Delivery address -->
 			<div class="col-12">
 				<?php if ($dAdd != null) {?>
-					<form action="func_updateDelAddress.php" method="POST">
+					<form action="../functions/func_updateDelAddress.php" method="POST">
 					  <h1>Delivery address</h1>
 					  <p>Please fill out all fields</p>
 					  <h3>Name:</h3>
@@ -49,7 +49,7 @@
 					  <input type="submit" value="Edit" name="submit">
 					</form>
 				<?php } else { ?>
-					<form action="func_updateDelAddress.php" method="POST">
+					<form action="../functions/func_updateDelAddress.php" method="POST">
 					  <h1>Delivery address</h1>
 					  <p>Please fill out all fields</p>
 					  <h3>Name:</h3>

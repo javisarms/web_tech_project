@@ -1,5 +1,5 @@
 <?php 
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new User;
 
 if(isset($_POST['submit']))
@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
 	//Validation if empty
 	if(empty($email) || empty($pw))
 	{
-		header("Location: page_logIn.php?login=empty");
+		header("Location: ../views/page_logIn.php?login=empty");
 		exit();
 	}
 
@@ -34,15 +34,15 @@ if(isset($_POST['submit']))
 					$_SESSION['uemail'] = $row['email'];
 					$_SESSION['ubadd'] = $row['billing_adress_id'];
 					$_SESSION['udadd'] = $row['delivery_adress_id'];
-
+					
 					if($_SESSION['uemail'] == "admin@example.com")
 					{
-						header("Location: index.php");
+						header("Location: ../index.php");
 					}
 
 					else
 					{
-						header("Location: page_products.php?login=success");
+						header("Location: ../views/page_products.php?login=success");
 					}
 					
 					exit();
@@ -50,7 +50,7 @@ if(isset($_POST['submit']))
 
 				elseif($PWC == true)
 				{
-					header("Location: page_logIn.php?login=error");
+					header("Location: ../views/page_logIn.php?login=error");
 					exit();
 				}
 			}
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
 
 		else
 		{
-			header("Location: page_logIn.php?login=error");
+			header("Location: ../views/page_logIn.php?login=error");
 			exit();
 		}
 	}
@@ -66,6 +66,6 @@ if(isset($_POST['submit']))
 
 else
 {
-	header("Location: page_logIn.php?login=error");
+	header("Location: ../views/page_logIn.php?login=error");
 	exit();	
 }

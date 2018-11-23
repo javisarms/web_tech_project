@@ -44,8 +44,8 @@ if($email == "admin@example.com") {
 			   <th> </th>
 			 </tr>
 			 <?php foreach ($products as $product) {?>
-			 	<?php $purl = "admin_func_DeleteProd.php?id=" . $product['id']; ?>
-			 	<?php $eurl = "admin_page_editProd.php?id=" . $product['id']; ?>
+			 	<?php $purl = "functions/admin_func_DeleteProd.php?id=" . $product['id']; ?>
+			 	<?php $eurl = "views/admin_page_editProd.php?id=" . $product['id']; ?>
 			   <tr>
 			     <td>
 			       <?php echo ($product['id']); ?>

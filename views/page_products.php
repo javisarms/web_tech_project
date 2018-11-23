@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new Product;
 $object->connect();
 $products = $object->getArray('products');
@@ -9,7 +9,7 @@ $products = $object->getArray('products');
 <html>
 <head>
 	<title>Products</title>
-	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 
@@ -25,7 +25,7 @@ $products = $object->getArray('products');
          <div class="product_img">
           <?php $p_url = "page_product.php?id=" . $product['id'];?>
          	<a href="<?php echo ($p_url)?>">
-             <img style="width: 300px; height: 300px;" src="<?php echo ($product['image_url'])?>" href="Product.html">
+             <img style="width: 300px; height: 300px;" src="<?php echo ("../" . $product['image_url'])?>" href="Product.html">
          	</a>
              <br>
          </div>

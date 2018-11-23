@@ -1,5 +1,5 @@
   <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new User;
 $object->connect();
 $user = $object->getByID('users', $_SESSION['uid']);
@@ -21,7 +21,7 @@ if(empty($user['delivery_adress_id'] ==  false))
 <html>
 <head>
 	<title>Checkout</title>
-	<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 	<style>
 		input[type=text] 
 		{
@@ -43,7 +43,7 @@ if(empty($user['delivery_adress_id'] ==  false))
 		<div class = "cont">
 			<div class='col-12'>
 				<h1 class = "first-word">Checkout</h1>
-				<form action="func_CheckOut.php" method="POST">
+				<form action="../functions/func_CheckOut.php" method="POST">
 					<div class="but">
 						<!-- Buttons if delivery address and billing address exist -->
 						<?php if (empty($user['billing_adress_id'] ==  false)) {?>

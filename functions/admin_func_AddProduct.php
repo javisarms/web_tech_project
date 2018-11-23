@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $email = $_SESSION['uemail'];
 $object = new Product;
 $object->connect();
@@ -16,7 +16,7 @@ if ($email == "admin@example.com")
 
 		if (empty($name) || empty($description) || empty($price) || empty($url) || empty($r_id)) 
 		{
-			header("Location: index.php?error=empty");
+			header("Location: ../index.php?error=empty");
 			exit();	
 		}
 
@@ -24,20 +24,20 @@ if ($email == "admin@example.com")
 		{
 			$write = "INSERT INTO products (name, description, unit_price, image_url, range_id) VALUES ('$name', '$description', '$price', '$url', '$r_id')";
 			$st = $object->connect()->exec($write);
-			header("Location: index.php?create=success");
+			header("Location: ../index.php?create=success");
 			exit();	
 		}
 	}
 
 	else
 	{
-		header("Location: index.php");
+		header("Location: ../index.php");
 		exit();	
 	}
 }
 
 else
 {
-	header("Location: index.php");
+	header("Location: ../index.php");
 	exit();	
 }

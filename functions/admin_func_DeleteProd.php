@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new Product;
 $object->connect();
 $email = $_SESSION['uemail'];
@@ -10,17 +10,18 @@ if ($email == "admin@example.com")
 	if (isset($_POST['submit'])) 
 	{
 		$object->delete($pid);
+		header("Location: ../index.php");
 	}
 
 	else
 	{
-		header("Location: index.php");
+		header("Location: ../index.php");
 		exit();	
 	}
 }
 
 else
 {
-	header("Location: index.php");
+	header("Location: ../index.php");
 	exit();	
 }

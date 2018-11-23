@@ -1,5 +1,5 @@
 <?php
-require_once ('core/init.php');
+require_once ('init.php');
 $object = new Order;
 $object->connect();
 $uid = $_SESSION['uid'];
@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
 
 	if(empty($quantity))
 	{
-		header("Location: page_products.php?error=empty");
+		header("Location: ../views/page_products.php?error=empty");
 		exit();	
 	}
 
@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
 			$oid = $order['id'];
 			$write = "INSERT INTO order_products (order_id, product_id, quantity, unit_price) VALUES ('$oid', '$pid', '$quantity', '$price')";
 			$st = $object->connect()->exec($write);
-			header("Location: page_myCart.php?cart=success");
+			header("Location: ../views/page_myCart.php?cart=success");
 			exit();
 		}
 
@@ -62,7 +62,7 @@ if(isset($_POST['submit']))
 				$quantity += $prodTBA['quantity'];
 				$object->updateQuantity($quantity, $prodTBA);
 			}
-			header("Location: page_myCart.php?cart=success");
+			header("Location: ../views/page_myCart.php?cart=success");
 			exit();
 		}
 	}
@@ -70,6 +70,6 @@ if(isset($_POST['submit']))
 
 else
 {
-	header("Location: page_products.php");
+	header("Location: ../views/page_products.php");
 	exit();	
 }
