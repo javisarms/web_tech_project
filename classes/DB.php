@@ -1,8 +1,15 @@
 <?php 
 
-//executes query, simplifies the querying process
+/**
+ * This class is the mother class. It has valuable methods
+ * that can be used universally by all the other classes.
+ */
 class DB
  {
+ 	/**
+ 	 * This method connects to the database using
+ 	 * PDO.
+ 	 */
  	public function connect()
 	{
 		try
@@ -19,6 +26,13 @@ class DB
 		}
 	}
 
+	/**
+	 * This method gets a specific table from
+	 * the data base and returns it as a PHP
+	 * array.
+	 * @param  String $table the name of the table
+	 * @return array of table from the data
+	 */
 	public function getArray($table)
 	{
 		$query = "SELECT * FROM " . $table;
@@ -33,6 +47,13 @@ class DB
 		return $arr;
 	}
 
+	/**
+	 * This selects a particular row from a table
+	 * given its ID.
+	 * @param  String $table the name of the table
+	 * @param  int $id the ID of the row
+	 * @return data of the row
+	 */
 	public function getByID($table, $id)
 	{
 		$query = "SELECT * FROM " . $table . " WHERE id=?";
@@ -53,6 +74,12 @@ class DB
 		}
 	}
 
+	/**
+	 * This method gets the last row from
+	 * a specific table.
+	 * @param  String $table the name of the table
+	 * @return data of the row
+	 */
 	public function getLast($table)
 	{
 		$query = "SELECT * FROM " . $table . " ORDER BY ID DESC LIMIT 1";
